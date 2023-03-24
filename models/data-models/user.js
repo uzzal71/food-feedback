@@ -6,8 +6,15 @@ const userSchema = new mongoose.Schema({
     email : { type: String, unique: true, required: true},
     username : { type: String, unique: true, required: true},
     password : { type: String, required: true},
-    username : { type: Boolean, required: true, default: false},
-    createdAt : { type: Date, required: true}
+    isVerify : { type: Boolean, required: true, default: false},
+    role: {
+        type: String,
+        enum: ['admin', 'user'],
+        default: 'user',
+    },
+    avater: { type: String, default: 'profile/default.png' },
+    createdAt : { type: Date },
+    updatedAt : { type: Date }
 });
 
 // reference model
