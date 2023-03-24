@@ -1,47 +1,48 @@
 import models from "../models/data-models";
-import { userViewModel } from "../models/view-models/user-view-model";
+import { postViewModel } from "../models/view-models/post-view-model";
 import { NotFound } from "../utils/errors";
 
-export const getAllUsers = async () => {
-    const User = models.User;
-    const users = await User.find();
-    let viewModels = users.map(user => new userViewModel(user));
+export const getAllPosts = async () => {
+    const Post = models.Post;
+    const posts = await Post.find();
+    let viewModels = posts.map(post => new postViewModel(post));
     return viewModels;
 }
 
-export const saveUser = async (user) => {
-    const model = new models.User(user);
-    const savedUser = await model.save();
-    return savedUser._id;
+export const savePost = async (post) => {
+    const model = new models.Post(post);
+    const savedPost = await model.save();
+    return savedPost._id;
 };
 
-export const update = async (user) => {
-    const id = user.id;
-    const User = models.User;
-    let model = await User.findById(id);
+export const updatePost = async (post) => {
+    const id = post.id;
+    const Post = models.Post;
+    let model = await Post.findById(id);
     if (model) {
-        model.username = user.username;
+        model.title = post.title;
+        model.body = post.body;
         model.save();
         return model._id;
     }
 
-    throw new NotFound('User not found by the id: ' + id);
+    throw new NotFound('Post not found by the id: ' + id);
 }
 
-export const deleteById = async (id) => {
-    const User = models.User;
-    let model = await User.findById(id);
+export const deletePostById = async (id) => {
+    const Post = models.Post;
+    let model = await Post.findById(id);
     if (model) {
-        let result = await User.deleteOne({ _id: id });
+        let result = await Post.deleteOne({ _id: id });
         return result;
     }
 
-    throw new NotFound('User not found by the id: ' + id);
+    throw new NotFound('Post not found by the id: ' + id);
 }
 
-export const getUserById = async (id) => {
-    const User = models.User;
-    let model = await User.findById(id);
-    let viewModel = new userViewModel(model);
+export const getPostById = async (id) => {
+    const Post = models.Post;
+    let model = await Post.findById(id);
+    let viewModel = new postViewModel(model);
     return viewModel;
 }

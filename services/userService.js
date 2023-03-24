@@ -15,7 +15,7 @@ export const saveUser = async (user) => {
     return savedUser._id;
 };
 
-export const update = async (user) => {
+export const updateUser = async (user) => {
     const id = user.id;
     const User = models.User;
     let model = await User.findById(id);
@@ -28,7 +28,7 @@ export const update = async (user) => {
     throw new NotFound('User not found by the id: ' + id);
 }
 
-export const deleteById = async (id) => {
+export const deleteUserById = async (id) => {
     const User = models.User;
     let model = await User.findById(id);
     if (model) {
