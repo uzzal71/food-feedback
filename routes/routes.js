@@ -1,10 +1,12 @@
 import express from "express";
-import userRoute from "./userRoute";
-import postRoute from "./postRoute";
+import auth from "./auth";
+import profile from "./profile";
+import post from "./post";
 
 const router = express.Router();
 
-router.use('/users', userRoute);
-router.use('/posts', postRoute);
+router.use('/auth', auth);
+router.use('/profile', profile);
+router.use('/posts', post);
 
 export default router;
