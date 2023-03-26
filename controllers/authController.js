@@ -1,5 +1,4 @@
 import { registerHandler } from "../services/authService";
-import { saveUser } from "../services/userService";
 
 export const login = (req, res) => {
     const { email, password } = req.body;
@@ -10,7 +9,7 @@ export const login = (req, res) => {
 export const registration = async(req, res, next) => {
     try {
         const body = req.body;
-        const id = await saveUser(body);
+        const id = await registerHandler(body);
         res.status(201).send(id);
     } catch (error) {
         return next(error, req, res);

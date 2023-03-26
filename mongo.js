@@ -4,7 +4,7 @@ const uri = `mongodb://localhost:27017/food-feedback`;
 
 const options = {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
+    useUnifiedTopology: true
 };
 
 const connectWithDb = async () => {
