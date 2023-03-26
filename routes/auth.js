@@ -1,12 +1,10 @@
 import express from "express";
 const router = express.Router();
 
-const getHandler = (req, res, next) => {
-    res.status(200).send("all users");
-}
+import { login, logout, registration } from "../controllers/authController";
 
-router.post('/login', getHandler);
-router.post('/registration', getHandler);
-router.post('/logout', getHandler);
+router.post('/signin', login);
+router.post('/signup', registration);
+router.post('/logout', logout);
 
 export default router;
