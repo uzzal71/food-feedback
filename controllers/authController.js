@@ -9,8 +9,8 @@ export const login = (req, res) => {
 export const registration = async(req, res, next) => {
     try {
         const body = req.body;
-        const id = await registerHandler(body);
-        res.status(201).send(id);
+        const result = await registerHandler(body);
+        res.status(201).send(result);
     } catch (error) {
         return next(error, req, res);
     }

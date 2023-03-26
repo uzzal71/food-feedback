@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const uri = `mongodb://localhost:27017/food-feedback`;
+const uri = `mongodb://127.0.0.1:27017/food-feedback`;
 
 const options = {
     useNewUrlParser: true,
@@ -9,6 +9,7 @@ const options = {
 
 const connectWithDb = async () => {
     const connectionResult = await mongoose.connect(uri, options);
+    console.log(`Database connected`);
     return true;
 };
 
