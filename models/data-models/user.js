@@ -13,9 +13,23 @@ const userSchema = new mongoose.Schema({
         default: 'user',
     },
     avater: { type: String, default: 'profile/default.png' },
+    deleteAt : { type: Date, default: null },
     createdAt : { type: Date },
     updatedAt : { type: Date }
 });
+
+// userSchema.pre('save', async (next) => {
+//     const user = this;
+//     if (user.isModified('password')) {
+//       user.password = await bcrypt.hash(user.password, 8);
+//     }
+//     next();
+//   });
+  
+//   userSchema.methods.checkPassword = async (password) => {
+//     const user = this;
+//     return await bcrypt.compare(password, user.password);
+//   };
 
 // reference model
 const User = mongoose.model("User", userSchema);

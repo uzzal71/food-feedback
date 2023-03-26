@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const uri = `mongodb://localhost:27017/${DB_NAME}`;
+const uri = `mongodb://localhost:27017/food-feedback`;
 
 const options = {
     useNewUrlParser: true,
