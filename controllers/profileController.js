@@ -1,15 +1,16 @@
-import { getProfile, updateProfile, deleteProfile } from "../services/profileService";
+import { getProfileService, updateProfileService, deleteProfileService } from "../services/profileService";
 import { NotFound } from '../utils/errors';
+import { successResponse } from "../utils/serializer";
 
 export const getProfile = async (req, res, next) => {
     try {
-        const id = req.params.id;
-        const user = await getUserById(id);
+        const id = req.user.id;
+        const user = await getProfileService(id);
         if (user) {
-            res.status(200).send(user);
+            res.status(200).send(successResponse(user));
         }
         else {
-            throw new NotFound('User not found by the id: ' + id);
+            throw new NotFound('unauthorized');
         }
     } catch (error) {
         return next(error, req, res);

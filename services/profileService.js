@@ -2,14 +2,14 @@ import models from "../models/data-models";
 import { userViewModel } from "../models/view-models/user-view-model";
 import { NotFound } from "../utils/errors";
 
-export const getProfile = async (id) => {
+export const getProfileService = async (id) => {
     const User = models.User;
     let model = await User.findById(id);
     let viewModel = new userViewModel(model);
     return viewModel;
 }
 
-export const updateProfile = async (user) => {
+export const updateProfileService = async (user) => {
     const id = user.id;
     const User = models.User;
     let model = await User.findById(id);
@@ -22,7 +22,7 @@ export const updateProfile = async (user) => {
     throw new NotFound('Profile not found by the id: ' + id);
 }
 
-export const deleteProfile = async (id) => {
+export const deleteProfileService = async (id) => {
     const User = models.User;
     let model = await User.findById(id);
     if (model) {

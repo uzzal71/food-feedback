@@ -1,10 +1,10 @@
 import express from "express";
 const router = express.Router();
 
-const getHandler = (req, res, next) => {
-    res.status(200).send("all users");
-}
+import { getProfile, updateProfile, deleteProfile } from "../controllers/profileController";
+import { tokenVerify } from "../middlewares/auth";
 
-router.get('/', getHandler);
+
+router.get('/', tokenVerify, getProfile);
 
 export default router;

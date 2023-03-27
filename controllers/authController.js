@@ -1,10 +1,11 @@
 import { loginHandler, registerHandler } from "../services/authService";
+import { successResponse } from "../utils/serializer";
 
 export const login = async (req, res, next) => {
     try {
       const { email, password } = req.body;
       const result = await loginHandler(email, password);
-      res.status(200).send(result);
+      res.status(200).send(successResponse(result));
     } catch (error) {
       return next(error, req, res);
     }
