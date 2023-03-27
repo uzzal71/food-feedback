@@ -20,7 +20,10 @@ export const loginHandler = async (email, password) => {
     }
 
     const userInfo = new userViewModel(user);
-    userInfo.token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' })
+    userInfo.token = token;
+    // token save
+    await models.Token.create({ token, owner: user.id });
 
     return userInfo;
 }

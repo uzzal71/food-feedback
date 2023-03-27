@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 // schema 
-const blacklistedTokenSchema = new mongoose.Schema({
+const tokenSchema = new mongoose.Schema({
     token: String,
     createdAt: {
         type: Date,
@@ -16,6 +16,6 @@ const blacklistedTokenSchema = new mongoose.Schema({
 });
 
 // reference model
-const BlacklistedToken = mongoose.model("BlacklistedToken", blacklistedTokenSchema);
+const Token = mongoose.model("Token", tokenSchema);
 
-export default BlacklistedToken;
+export default Token;
