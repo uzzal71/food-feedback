@@ -5,7 +5,6 @@ import { userViewModel } from "../models/view-models/user-view-model";
 import { NotFound } from "../utils/errors";
 
 export const loginHandler = async (email, password) => {
-  console.log(process.env.JWT_SECRET);
   const model = models.User;
   const user = await model.findOne({ email});
 
@@ -23,6 +22,7 @@ export const loginHandler = async (email, password) => {
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' })
     userInfo.token = token;
     // token save
+    console.log(await models.Token.deleteMany({ owner: userInfo._id }));
     await models.Token.create({ token, owner: user.id });
 
     return userInfo;
