@@ -1,9 +1,27 @@
+import jwt from 'jsonwebtoken';
+import UnauthorizedError from 'http-errors';
 import models from "../models/data-models";
 import { userViewModel } from "../models/view-models/user-view-model";
+import { NotFound } from "../utils/errors";
 
+export const loginHandler = async (email, password) => {
+  const model = models.User;
+  const user = await model.findOne({ email});
 
-export const loginHandler = () => {
+  if (!user) {
+      throw new NotFound(`User record not found by the email: ${email}`);
+    }
 
+    const isPasswordMatch = await user.checkPassword(password);
+
+    if (!isPasswordMatch) {
+      throw new UnauthorizedError('Invalid email or password');
+    }
+
+    const userInfo = new userViewModel(user);
+    userInfo.token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
+
+    return userInfo;
 }
 
 export const registerHandler = async (userData) => {

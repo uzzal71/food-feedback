@@ -1,9 +1,13 @@
-import { registerHandler } from "../services/authService";
+import { loginHandler, registerHandler } from "../services/authService";
 
-export const login = (req, res) => {
-    const { email, password } = req.body;
-
-    res.status(200).json({data: req.body});
+export const login = async (req, res, next) => {
+    try {
+      const { email, password } = req.body;
+      const result = await loginHandler(email, password);
+      res.status(200).send(result);
+    } catch (error) {
+      return next(error, req, res);
+    }
 }
 
 export const registration = async(req, res, next) => {
