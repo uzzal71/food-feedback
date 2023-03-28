@@ -1,6 +1,6 @@
-import { tokenVerify } from "../middlewares/auth";
-
 import express from "express";
+
+import { tokenVerify } from "../middlewares/auth";
 import auth from "./auth";
 import profile from "./profile";
 import post from "./post";

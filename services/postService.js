@@ -9,8 +9,10 @@ export const getAllPosts = async () => {
     return viewModels;
 }
 
-export const savePost = async (post) => {
+export const savePost = async (post, userId) => {
     const model = new models.Post(post);
+    model.owner = userId;
+    console.log(model);
     const savedPost = await model.save();
     return savedPost._id;
 };

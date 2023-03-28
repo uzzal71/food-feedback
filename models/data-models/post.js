@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
-// schema 
+// schema
 const postSchema = new mongoose.Schema({
     title : { type: String, required: true },
     body : { type: String, required: true },
@@ -12,7 +12,8 @@ const postSchema = new mongoose.Schema({
         ref: "User",
     },
     totalLike : { type: Number, default: 0 },
-    comments : { type: Array },
+    comments : { type: Array, default: null },
+    deleteAt: { type: Date, default: null },
     createdAt : { type: Date },
     updatedAt : { type: Date }
 });

@@ -1,10 +1,14 @@
 import express from "express";
 const router = express.Router();
 
-const getHandler = (req, res, next) => {
-    res.status(200).send("all posts");
-}
+import { getAllPostHandler, getByIdHandler, postHandler, putHandler, deleteHandler } from "../controllers/postController";
+import validators from "../models/request-models";
+import { handleValidation } from "../middlewares";
 
-router.get('/', getHandler);
+router.get('/', getAllPostHandler);
+router.get('/:id', getByIdHandler);
+router.post('/', handleValidation(validators.postSchemaValidate), postHandler);
+router.put('/', handleValidation(validators.postSchemaValidate), putHandler);
+router.delete('/:id', deleteHandler);
 
 export default router;
