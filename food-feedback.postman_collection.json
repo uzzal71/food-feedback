@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "e213539e-4fd1-4ebc-8fc5-e4b32f0336eb",
+		"_postman_id": "80398f59-d8b6-44b9-bfd5-e57c0d0aeec5",
 		"name": "food-feedback",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3396308"
 	},
 	"item": [
 		{
@@ -26,12 +27,7 @@
 									"value": "uzzalroy71",
 									"type": "text"
 								}
-							],
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							]
 						},
 						"url": {
 							"raw": "{{baseUrl}}/api/v1/auth/signin",
@@ -54,8 +50,8 @@
 						"method": "POST",
 						"header": [],
 						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
+							"mode": "formdata",
+							"formdata": [
 								{
 									"key": "name",
 									"value": "Uzzal Kuamr Roy",
@@ -68,12 +64,12 @@
 								},
 								{
 									"key": "username",
-									"value": "uzzalroy710",
+									"value": "uzzalroy1996",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "uzzalroy710",
+									"value": "uzzalroy1996",
 									"type": "text"
 								},
 								{
@@ -83,10 +79,9 @@
 									"type": "text"
 								},
 								{
-									"key": "avater",
-									"value": "",
-									"type": "text",
-									"disabled": true
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/User/Downloads/NID.jpg"
 								}
 							]
 						},
@@ -143,12 +138,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjY0MjEwZTk0NGUzMWE3OTczODFmMTdiZSIsIm5hbWUiOiJVenphbCBSb3kiLCJlbWFpbCI6InV6emFscm95LmFjbUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTAzLTI3VDAzOjMzOjQwLjM3OVoifSwiaWF0IjoxNjc5OTkxODc4LCJleHAiOjE2Nzk5OTU0Nzh9.PKDYasr5P_y8jubsbNJvsmeOBFmIaIGDMRWLxsO4fao",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjY0MjA4MTM2ZmM4NzY3ZTZjNjYzNmEzMCIsIm5hbWUiOiJVenphbCBLdWFtciBSb3kiLCJlbWFpbCI6InV6emFscm95LmFjbUBnbWFpbC5jb20ifSwiaWF0IjoxNjgwMDI0NTIxLCJleHAiOjE2ODAwMjgxMjF9.Oyjjd-iKfinSUyQuyRf4G9LsjRn6SOFPrewgTUsUkoI",
 								"type": "default"
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/api/v1/posts",
+							"raw": "{{baseUrl}}/api/v1/posts?limit=10&page=1",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -156,6 +151,52 @@
 								"api",
 								"v1",
 								"posts"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Author All Posts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjY0MjA4MTM2ZmM4NzY3ZTZjNjYzNmEzMCIsIm5hbWUiOiJVenphbCBLdWFtciBSb3kiLCJlbWFpbCI6InV6emFscm95LmFjbUBnbWFpbC5jb20ifSwiaWF0IjoxNjgwMDI0NTIxLCJleHAiOjE2ODAwMjgxMjF9.Oyjjd-iKfinSUyQuyRf4G9LsjRn6SOFPrewgTUsUkoI",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/posts/author?limit=10&page=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"posts",
+								"author"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
 							]
 						}
 					},
@@ -168,7 +209,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjY0MjEwZTk0NGUzMWE3OTczODFmMTdiZSIsIm5hbWUiOiJVenphbCBSb3kiLCJlbWFpbCI6InV6emFscm95LmFjbUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTAzLTI3VDAzOjMzOjQwLjM3OVoifSwiaWF0IjoxNjc5OTkxODc4LCJleHAiOjE2Nzk5OTU0Nzh9.PKDYasr5P_y8jubsbNJvsmeOBFmIaIGDMRWLxsO4fao",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjY0MjA4MTM2ZmM4NzY3ZTZjNjYzNmEzMCIsIm5hbWUiOiJVenphbCBLdWFtciBSb3kiLCJlbWFpbCI6InV6emFscm95LmFjbUBnbWFpbC5jb20ifSwiaWF0IjoxNjgwMDI0NTIxLCJleHAiOjE2ODAwMjgxMjF9.Oyjjd-iKfinSUyQuyRf4G9LsjRn6SOFPrewgTUsUkoI",
 								"type": "default"
 							}
 						],
@@ -208,6 +249,65 @@
 								"api",
 								"v1",
 								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Post",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjY0MjA4MTM2ZmM4NzY3ZTZjNjYzNmEzMCIsIm5hbWUiOiJVenphbCBLdWFtciBSb3kiLCJlbWFpbCI6InV6emFscm95LmFjbUBnbWFpbC5jb20ifSwiaWF0IjoxNjgwMDI0NTIxLCJleHAiOjE2ODAwMjgxMjF9.Oyjjd-iKfinSUyQuyRf4G9LsjRn6SOFPrewgTUsUkoI",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Best OTT Platform | Beeda Movies",
+									"type": "default"
+								},
+								{
+									"key": "body",
+									"value": "Beeda Mega App has a leading OTT (Over-The-Top) platform, namely Beeda Movies, which offers users a wide range of digital content. ",
+									"type": "default"
+								},
+								{
+									"key": "file",
+									"value": "",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "location",
+									"value": "",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/posts/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"posts",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "642323d4f8f269791ab304e6"
+								}
 							]
 						}
 					},
@@ -266,6 +366,68 @@
 								{
 									"key": "id",
 									"value": "6422aa1c686b09083b76bccd"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Post",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjY0MjA4MTM2ZmM4NzY3ZTZjNjYzNmEzMCIsIm5hbWUiOiJVenphbCBLdWFtciBSb3kiLCJlbWFpbCI6InV6emFscm95LmFjbUBnbWFpbC5jb20ifSwiaWF0IjoxNjgwMDI0NTIxLCJleHAiOjE2ODAwMjgxMjF9.Oyjjd-iKfinSUyQuyRf4G9LsjRn6SOFPrewgTUsUkoI",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Best OTT Platform | Beeda Movies",
+									"type": "default"
+								},
+								{
+									"key": "body",
+									"value": "Beeda Mega App has a leading OTT (Over-The-Top) platform, namely Beeda Movies, which offers users a wide range of digital content. ",
+									"type": "default"
+								},
+								{
+									"key": "file",
+									"value": "",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "location",
+									"value": "",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/posts/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"posts",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "642323d4f8f269791ab304e6"
 								}
 							]
 						}
