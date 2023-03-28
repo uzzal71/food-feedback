@@ -4,7 +4,7 @@ import { successResponse } from "../utils/serializer";
 
 export const getProfile = async (req, res, next) => {
     try {
-        const id = req.user.id;
+        const id = req.params.id;
         const user = await getProfileService(id);
         if (user) {
             res.status(200).send(successResponse(user));

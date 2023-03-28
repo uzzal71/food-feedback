@@ -25,7 +25,6 @@ export const registration = async(req, res, next) => {
 
 export const logout = async(req, res, next) => {
   try {
-      console.log(req.user.id);
       const model = models.User
       const user = await model.findOne({"_id": req.user.id});
       if (!user) throw new UnauthorizedError('Unauthorized');

@@ -27,6 +27,8 @@ export const tokenVerify = async (req, res, next) => {
   }
 };
 
+export
+
 export const roleVerify = (role) => (req, res, next) => {
   if (req.user.role !== role) {
     throw new UnauthorizedError('You do not have permission to access this resource');
