@@ -1,4 +1,4 @@
-import { savePost, getAllPosts, getAuthorAllPosts, updatePost, deletePostById, getPostById } from "../services/postService";
+import { getAllPosts, getAuthorAllPosts, getPostById, savePost, updatePost, deletePostById } from "../services/postService";
 import { NotFound } from '../utils/errors';
 import { successResponse } from "../utils/serializer";
 
@@ -22,7 +22,7 @@ export const getAuthorAllPostHandler = async (req, res, next) => {
     }
 };
 
-export const getByIdHandler = async (req, res, next) => {
+export const getPostHandler = async (req, res, next) => {
     try {
         const id = req.params.id;
         const user = await getPostById(id);
@@ -49,9 +49,10 @@ export const postHandler = async (req, res, next) => {
 
 export const putHandler = async (req, res, next) => {
     try {
+        const id = req.params.id;
         const body = req.body;
-        const id = await updatePost(body);
-        res.status(200).send(id);
+        const post = await updatePost(body, id);
+        res.status(200).send(successResponse({postId: post._id}));
     } catch (error) {
         return next(error, req, res);
     }
