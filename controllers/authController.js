@@ -15,6 +15,7 @@ export const login = async (req, res, next) => {
 
 export const registration = async(req, res, next) => {
     try {
+        console.log(req);
         const body = req.body;
         const result = await registerHandler(body);
         res.status(201).send(result);

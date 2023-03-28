@@ -7,7 +7,7 @@ import { handleValidation } from "../middlewares";
 import { tokenVerify } from "../middlewares/auth";
 
 router.post('/signin', handleValidation(validators.authValidate), login);
-router.post('/signup', handleValidation(validators.userSchemaValidate), registration);
+router.post('/signup', global.upload.single('avatar'), registration); // , handleValidation(validators.userSchemaValidate)
 router.post('/logout', tokenVerify, logout);
 
 export default router;
