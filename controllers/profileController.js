@@ -20,7 +20,7 @@ export const getProfile = async (req, res, next) => {
 export const updateProfile = async (req, res, next) => {
     try {
         const body = req.body;
-        const id = await updateUser(body);
+        const id = await updateProfileService(body);
         res.status(200).send(id);
     } catch (error) {
         return next(error, req, res);
