@@ -3,8 +3,8 @@ const router = express.Router();
 
 import { getProfile, updateProfile, deleteProfile } from "../controllers/profileController";
 
-router.get('/:id', getProfile);
-router.put('/:id', updateProfile);
-router.delete('/:id', deleteProfile);
+router.get('/', getProfile);
+router.put('/', updateProfile);
+router.delete('/', deleteProfile);
 
 export default router;

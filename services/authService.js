@@ -6,7 +6,7 @@ import { NotFound } from "../utils/errors";
 
 export const loginHandler = async (email, password) => {
   const model = models.User;
-  const user = await model.findOne({ email});
+  const user = await model.findOne({ email: email, deleteAt: null });
   if (!user) throw new NotFound(`User record not found by the email: ${email}`);
 
   const isPasswordMatch = await user.checkPassword(password);

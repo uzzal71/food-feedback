@@ -9,24 +9,22 @@ export const getProfileService = async (id) => {
     return viewModel;
 }
 
-export const updateProfileService = async (user) => {
-    const id = user.id;
+export const updateProfileService = async (updateData, userId) => {
     const User = models.User;
-    let model = await User.findById(id);
+    let model = await User.findById(userId);
     if (model) {
-        model.username = user.username;
-        model.save();
-        return model._id;
+      const result = await User.findOneAndUpdate({ _id: model._id }, updateData, { new: true });
+      return result;
     }
 
     throw new NotFound('Profile not found by the id: ' + id);
 }
 
-export const deleteProfileService = async (id) => {
+export const deleteProfileService = async (userId) => {
     const User = models.User;
-    let model = await User.findById(id);
+    let model = await User.findById(userId);
     if (model) {
-        let result = await User.deleteOne({ _id: id });
+        let result = await User.findOneAndUpdate({ _id: model._id }, { deleteAt: new Date() }, { new: true });
         return result;
     }
 
