@@ -2,11 +2,26 @@ import models from "../models/data-models";
 import { postViewModel } from "../models/view-models/post-view-model";
 import { NotFound } from "../utils/errors";
 
-export const getAllPosts = async () => {
+export const getAllPosts = async (limit = 10, page = 1) => {
     const Post = models.Post;
-    const posts = await Post.find({ deletedAt: null });
+
+    const offset = (page - 1) * limit;
+    const totalPosts = await Post.countDocuments();
+    const totalPages = Math.ceil(totalPosts / limit);
+
+    const posts = await Post.find().skip(offset).limit(limit).exec();
+    console.log(posts);
     let viewModels = posts.map(post => new postViewModel(post));
-    return viewModels;
+    const nextPage = page < totalPages ? page + 1 : null;
+    const previousPage = page > 1 ? page - 1 : null;
+
+    return {
+        current_page: page,
+        next_page: nextPage,
+        previous_page: previousPage,
+        total_pages: totalPages,
+        posts: viewModels,
+    };
 }
 
 export const savePost = async (post, userId) => {

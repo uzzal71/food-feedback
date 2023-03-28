@@ -1,12 +1,12 @@
 import { savePost, getAllPosts, updatePost, deletePostById, getPostById } from "../services/postService";
-import validators from "../models/request-models";
-import { handleValidation } from "../middlewares";
 import { NotFound } from '../utils/errors';
+import { successResponse } from "../utils/serializer";
 
 export const getAllPostHandler = async (req, res, next) => {
     try {
-        const users = await getAllPosts();
-        res.status(200).send(users);
+        const { limit = 10, page = 1 } = req.query;
+        const posts = await getAllPosts(parseInt(limit), parseInt(page));
+        res.status(200).send(successResponse(posts));
     } catch (error) {
         return next(error, req, res);
     }
