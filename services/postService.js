@@ -9,9 +9,32 @@ export const getAllPosts = async (limit = 10, page = 1) => {
     const totalPosts = await Post.countDocuments();
     const totalPages = Math.ceil(totalPosts / limit);
 
-    const posts = await Post.find().populate('owner', 'username avatar').skip(offset).limit(limit).exec();
-    console.log(posts);
+    const posts = await Post.find().populate('author', 'username avatar').skip(offset).limit(limit).exec();
     let viewModels = posts.map(post => new postViewModel(post));
+    
+    const nextPage = page < totalPages ? page + 1 : null;
+    const previousPage = page > 1 ? page - 1 : null;
+
+    return {
+        current_page: page,
+        next_page: nextPage,
+        previous_page: previousPage,
+        total_pages: totalPages,
+        posts: viewModels,
+    };
+}
+
+export const getAuthorAllPosts = async (limit = 10, page = 1) => {
+    const Post = models.Post;
+    const authorId = req.user.id;
+
+    const offset = (page - 1) * limit;
+    const totalPosts = await Post.countDocuments();
+    const totalPages = Math.ceil(totalPosts / limit);
+
+    const posts = await Post.find({ author: authorId }).skip(offset).limit(limit).exec();
+    let viewModels = posts.map(post => new postViewModel(post));
+
     const nextPage = page < totalPages ? page + 1 : null;
     const previousPage = page > 1 ? page - 1 : null;
 
@@ -26,8 +49,7 @@ export const getAllPosts = async (limit = 10, page = 1) => {
 
 export const savePost = async (post, userId) => {
     const model = new models.Post(post);
-    model.owner = userId;
-    console.log(model);
+    model.author = userId;
     const savedPost = await model.save();
     return savedPost._id;
 };
@@ -40,7 +62,7 @@ export const updatePost = async (post) => {
         model.title = post.title;
         model.body = post.body;
         model.save();
-        return model._id;
+        return new postViewModel(model);
     }
 
     throw new NotFound('Post not found by the id: ' + id);

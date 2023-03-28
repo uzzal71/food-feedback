@@ -6,9 +6,9 @@ export class postViewModel {
         this.location = post.location;
         this.totalLike = post.totalLike;
         this.comments = post.comments;
-        this.owner = {
-            username: post.owner.username,
-            avatar: post.owner.avatar,
+        this.author = {
+            username: post.author.username,
+            avatar: post.author.avatar,
         };
         this.createdAt = post.createdAt;
     }

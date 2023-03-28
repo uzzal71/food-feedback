@@ -7,6 +7,7 @@ import { handleValidation } from "../middlewares";
 import { roleVerify } from "../middlewares/auth";
 
 router.get('/', roleVerify("admin"), getAllPostHandler);
+router.get('/author', getAllPostHandler);
 router.get('/:id', getByIdHandler);
 router.post('/', handleValidation(validators.postSchemaValidate), postHandler);
 router.put('/', handleValidation(validators.postSchemaValidate), putHandler);

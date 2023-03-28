@@ -1,4 +1,4 @@
-import { savePost, getAllPosts, updatePost, deletePostById, getPostById } from "../services/postService";
+import { savePost, getAllPosts, getAuthorAllPosts, updatePost, deletePostById, getPostById } from "../services/postService";
 import { NotFound } from '../utils/errors';
 import { successResponse } from "../utils/serializer";
 
@@ -6,6 +6,16 @@ export const getAllPostHandler = async (req, res, next) => {
     try {
         const { limit = 10, page = 1 } = req.query;
         const posts = await getAllPosts(parseInt(limit), parseInt(page));
+        res.status(200).send(successResponse(posts));
+    } catch (error) {
+        return next(error, req, res);
+    }
+};
+
+export const getAuthorAllPostHandler = async (req, res, next) => {
+    try {
+        const { limit = 10, page = 1 } = req.query;
+        const posts = await getAuthorAllPosts(parseInt(limit), parseInt(page));
         res.status(200).send(successResponse(posts));
     } catch (error) {
         return next(error, req, res);
@@ -30,8 +40,8 @@ export const getByIdHandler = async (req, res, next) => {
 export const postHandler = async (req, res, next) => {
     try {
         const body = req.body;
-        const id = await savePost(body, req.user.id);
-        res.status(201).send(id);
+        const postId = await savePost(body, req.user.id);
+        res.status(201).send(successResponse({postId}));
     } catch (error) {
         return next(error, req, res);
     }
