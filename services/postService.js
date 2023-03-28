@@ -4,7 +4,7 @@ import { NotFound } from "../utils/errors";
 
 export const getAllPosts = async () => {
     const Post = models.Post;
-    const posts = await Post.find();
+    const posts = await Post.find({ deletedAt: null });
     let viewModels = posts.map(post => new postViewModel(post));
     return viewModels;
 }
@@ -35,7 +35,7 @@ export const deletePostById = async (id) => {
     const Post = models.Post;
     let model = await Post.findById(id);
     if (model) {
-        let result = await Post.deleteOne({ _id: id });
+        let result = await Post.findOneAndUpdate({ _id: model._id }, { deletedAt: new Date() }, { new: true });
         return result;
     }
 

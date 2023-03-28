@@ -51,7 +51,7 @@ export const deleteHandler = async (req, res, next) => {
     try {
         const id = req.params.id;
         await deletePostById(id);
-        res.status(200).send("User deleted");
+        res.status(200).json({ status: 200, message: "Post deleted successfully" });
     } catch (error) {
         return next(error, req, res);
     }

@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
         default: 'user',
     },
     avatar: { type: String, default: 'profile/default.png' },
-    deleteAt: { type: Date, default: null },
+    deletedAt: { type: Date, default: null },
     createdAt: { type: Date },
     updatedAt: { type: Date }
 });

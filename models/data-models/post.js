@@ -13,7 +13,7 @@ const postSchema = new mongoose.Schema({
     },
     totalLike : { type: Number, default: 0 },
     comments : { type: Array, default: null },
-    deleteAt: { type: Date, default: null },
+    deletedAt: { type: Date, default: null },
     createdAt : { type: Date },
     updatedAt : { type: Date }
 });
