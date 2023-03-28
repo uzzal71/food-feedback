@@ -9,7 +9,7 @@ export const getAllPosts = async (limit = 10, page = 1) => {
     const totalPosts = await Post.countDocuments();
     const totalPages = Math.ceil(totalPosts / limit);
 
-    const posts = await Post.find().skip(offset).limit(limit).exec();
+    const posts = await Post.find().populate('owner', 'username avatar').skip(offset).limit(limit).exec();
     console.log(posts);
     let viewModels = posts.map(post => new postViewModel(post));
     const nextPage = page < totalPages ? page + 1 : null;
