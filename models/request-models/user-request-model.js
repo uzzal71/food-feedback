@@ -5,8 +5,8 @@ const schema = Joi.object({
     email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).required(),
     username: Joi.string().alphanum().min(3).max(30).required(),
     password: Joi.string().alphanum().min(8).max(15).required(),
-    role: Joi.string().valid('admin', 'user'),
-    avatar: Joi.string().default("default.png")
+    role: Joi.string().valid('admin', 'user').default('user'),
+    avatar: Joi.string().allow(null).default('default.png'),
 });
 
 const validate = (data) => {

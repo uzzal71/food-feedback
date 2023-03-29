@@ -1,9 +1,8 @@
 {
 	"info": {
-		"_postman_id": "80398f59-d8b6-44b9-bfd5-e57c0d0aeec5",
+		"_postman_id": "51cf6300-1b9d-4f9d-b53c-0dae71799a97",
 		"name": "food-feedback",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "3396308"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -20,6 +19,7 @@
 								{
 									"key": "email",
 									"value": "uzzalroy.acm@gmail.com",
+									"description": "uzzalroy.acm@gmail.com",
 									"type": "text"
 								},
 								{
@@ -54,22 +54,22 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "Uzzal Kuamr Roy",
+									"value": "Antrip Saha",
 									"type": "text"
 								},
 								{
 									"key": "email",
-									"value": "uzzalroy.cse@gmail.com",
+									"value": "antripsaha@gmail.com",
 									"type": "text"
 								},
 								{
 									"key": "username",
-									"value": "uzzalroy1996",
+									"value": "antripsaha874",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "uzzalroy1996",
+									"value": "uzzalroy71",
 									"type": "text"
 								},
 								{
@@ -81,7 +81,7 @@
 								{
 									"key": "avatar",
 									"type": "file",
-									"src": "/C:/Users/User/Downloads/NID.jpg"
+									"src": []
 								}
 							]
 						},
@@ -138,7 +138,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjY0MjA4MTM2ZmM4NzY3ZTZjNjYzNmEzMCIsIm5hbWUiOiJVenphbCBLdWFtciBSb3kiLCJlbWFpbCI6InV6emFscm95LmFjbUBnbWFpbC5jb20ifSwiaWF0IjoxNjgwMDI0NTIxLCJleHAiOjE2ODAwMjgxMjF9.Oyjjd-iKfinSUyQuyRf4G9LsjRn6SOFPrewgTUsUkoI",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjY0MjEwZTk0NGUzMWE3OTczODFmMTdiZSIsIm5hbWUiOiJVenphbCBSb3kiLCJlbWFpbCI6InV6emFscm95LmFjbUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTAzLTI3VDAzOjMzOjQwLjM3OVoifSwiaWF0IjoxNjgwMDYwNDY5LCJleHAiOjE2ODAwNjQwNjl9.lokdjiDKng32RecnEz45np7xyhrzRt8SBUWfIlGlLMM",
 								"type": "default"
 							}
 						],
@@ -173,7 +173,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjY0MjA4MTM2ZmM4NzY3ZTZjNjYzNmEzMCIsIm5hbWUiOiJVenphbCBLdWFtciBSb3kiLCJlbWFpbCI6InV6emFscm95LmFjbUBnbWFpbC5jb20ifSwiaWF0IjoxNjgwMDI0NTIxLCJleHAiOjE2ODAwMjgxMjF9.Oyjjd-iKfinSUyQuyRf4G9LsjRn6SOFPrewgTUsUkoI",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjY0MjExYzU1NjQ0MDMzMjA2ZTRmMzAxNyIsIm5hbWUiOiJVenphbCBLdWFtciBSb3kiLCJlbWFpbCI6InV6emFscm95LmNzZUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTAzLTI3VDA0OjMyOjIxLjQ5NVoifSwiaWF0IjoxNjgwMDYyMDc4LCJleHAiOjE2ODAwNjU2Nzh9.zEDFpF-SO6dannX0edypwrFcr7Yy4vvZyRixBMjphfA",
 								"type": "default"
 							}
 						],
@@ -209,7 +209,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjY0MjA4MTM2ZmM4NzY3ZTZjNjYzNmEzMCIsIm5hbWUiOiJVenphbCBLdWFtciBSb3kiLCJlbWFpbCI6InV6emFscm95LmFjbUBnbWFpbC5jb20ifSwiaWF0IjoxNjgwMDI0NTIxLCJleHAiOjE2ODAwMjgxMjF9.Oyjjd-iKfinSUyQuyRf4G9LsjRn6SOFPrewgTUsUkoI",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjY0MjExYzU1NjQ0MDMzMjA2ZTRmMzAxNyIsIm5hbWUiOiJVenphbCBLdWFtciBSb3kiLCJlbWFpbCI6InV6emFscm95LmNzZUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTAzLTI3VDA0OjMyOjIxLjQ5NVoifSwiaWF0IjoxNjgwMDYyMDc4LCJleHAiOjE2ODAwNjU2Nzh9.zEDFpF-SO6dannX0edypwrFcr7Yy4vvZyRixBMjphfA",
 								"type": "default"
 							}
 						],
@@ -261,7 +261,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjY0MjA4MTM2ZmM4NzY3ZTZjNjYzNmEzMCIsIm5hbWUiOiJVenphbCBLdWFtciBSb3kiLCJlbWFpbCI6InV6emFscm95LmFjbUBnbWFpbC5jb20ifSwiaWF0IjoxNjgwMDI0NTIxLCJleHAiOjE2ODAwMjgxMjF9.Oyjjd-iKfinSUyQuyRf4G9LsjRn6SOFPrewgTUsUkoI",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjY0MjEwZTk0NGUzMWE3OTczODFmMTdiZSIsIm5hbWUiOiJVenphbCBSb3kiLCJlbWFpbCI6InV6emFscm95LmFjbUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTAzLTI3VDAzOjMzOjQwLjM3OVoifSwiaWF0IjoxNjgwMDYwNDY5LCJleHAiOjE2ODAwNjQwNjl9.lokdjiDKng32RecnEz45np7xyhrzRt8SBUWfIlGlLMM",
 								"type": "default"
 							}
 						],
@@ -270,7 +270,7 @@
 							"urlencoded": [
 								{
 									"key": "title",
-									"value": "Best OTT Platform | Beeda Movies",
+									"value": "Best OTT Platform",
 									"type": "default"
 								},
 								{
@@ -306,7 +306,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "642323d4f8f269791ab304e6"
+									"value": "6422aa1c686b09083b76bccd"
 								}
 							]
 						}
