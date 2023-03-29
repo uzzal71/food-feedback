@@ -1,3 +1,6 @@
+import fs from 'fs';
+import path from "path";
+
 import { loginHandler, registerHandler, logoutHandler } from "../services/authService";
 import models from "../models/data-models";
 import { successResponse } from "../utils/serializer";
@@ -15,11 +18,17 @@ export const login = async (req, res, next) => {
 
 export const registration = async(req, res, next) => {
     try {
-        console.log(req);
         const body = req.body;
+        if (req.file) body.avatar = req.file.filename
         const result = await registerHandler(body);
         res.status(201).send(result);
     } catch (error) {
+        const filePath = `${path.join(__dirname, '..')}/uploads/${req.file.filename}`;
+        fs.unlink(filePath, (err) => {
+          if (err)  return next(err, req, res);
+          return;
+        });
+
         return next(error, req, res);
     }
 }

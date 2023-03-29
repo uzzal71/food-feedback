@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
         enum: ['admin', 'user'],
         default: 'user',
     },
-    avatar: { type: String, default: 'profile/default.png' },
+    avatar: { type: String, default: 'default.png' },
     deletedAt: { type: Date, default: null },
     createdAt: { type: Date },
     updatedAt: { type: Date }
