@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "51cf6300-1b9d-4f9d-b53c-0dae71799a97",
+		"_postman_id": "efb67d8e-a75d-40fd-94cf-8bdfb4c23eaa",
 		"name": "food-feedback",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3396308"
 	},
 	"item": [
 		{
@@ -18,7 +19,7 @@
 							"urlencoded": [
 								{
 									"key": "email",
-									"value": "uzzalroy.acm@gmail.com",
+									"value": "antripsaha@gmail.com",
 									"description": "uzzalroy.acm@gmail.com",
 									"type": "text"
 								},
@@ -69,7 +70,7 @@
 								},
 								{
 									"key": "password",
-									"value": "uzzalroy71",
+									"value": "uzzalroy710",
 									"type": "text"
 								},
 								{
@@ -446,7 +447,7 @@
 						"header": [
 							{
 								"key": "authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjY0MjEwZTk0NGUzMWE3OTczODFmMTdiZSIsIm5hbWUiOiJVenphbCBLdWFtciBSb3kiLCJlbWFpbCI6InV6emFscm95LmFjbUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTAzLTI3VDAzOjMzOjQwLjM3OVoifSwiaWF0IjoxNjc5OTgxMTI2LCJleHAiOjE2Nzk5ODQ3MjZ9.Mpb51_tAY29KHQXT43pLY7ZReCMQA95J1VywIwSelhc",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjY0MjQ5MWFjZTZlY2QzOGYzODFlMjk1ZCIsIm5hbWUiOiJBbnRyaXAgU2FoYSIsImVtYWlsIjoiYW50cmlwc2FoYUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTAzLTI5VDE5OjI5OjQ4LjM4OVoifSwiaWF0IjoxNjgwMTE4MjAzLCJleHAiOjE2ODAxMjE4MDN9.lcG_cVdF-no9cxxoHEKEYR7vTgzS76oiTQQsh8zZOPY",
 								"type": "default"
 							}
 						],
@@ -471,13 +472,13 @@
 						"header": [
 							{
 								"key": "authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjY0MjEwZTk0NGUzMWE3OTczODFmMTdiZSIsIm5hbWUiOiJVenphbCBLdWFtciBSb3kiLCJlbWFpbCI6InV6emFscm95LmFjbUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTAzLTI3VDAzOjMzOjQwLjM3OVoifSwiaWF0IjoxNjc5OTg0ODEwLCJleHAiOjE2Nzk5ODg0MTB9.dqU0Sawew6K3vES022iyj0xi1chZpxtVJD2nEoD-wUk",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjY0MjQ5MWFjZTZlY2QzOGYzODFlMjk1ZCIsIm5hbWUiOiJBbnRyaXAgU2FoYSIsImVtYWlsIjoiYW50cmlwc2FoYUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTAzLTI5VDE5OjI5OjQ4LjM4OVoifSwiaWF0IjoxNjgwMTE4MjAzLCJleHAiOjE2ODAxMjE4MDN9.lcG_cVdF-no9cxxoHEKEYR7vTgzS76oiTQQsh8zZOPY",
 								"type": "default"
 							}
 						],
 						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
+							"mode": "formdata",
+							"formdata": [
 								{
 									"key": "name",
 									"value": "Uzzal Roy",
@@ -498,8 +499,7 @@
 								{
 									"key": "password",
 									"value": "uzzalroy710",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								},
 								{
 									"key": "role",
@@ -509,10 +509,9 @@
 									"disabled": true
 								},
 								{
-									"key": "avater",
-									"value": "",
-									"type": "text",
-									"disabled": true
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/User/Desktop/nodejs/food-feedback/Testing Images/rectangle-41.png"
 								}
 							]
 						},
