@@ -27,6 +27,19 @@ export const tokenVerify = async (req, res, next) => {
   }
 };
 
+export const authorPostVerify = async (req, res, next) => {
+  try {
+    const Post = models.Post;
+    const post = await Post.findById(req.params.id).populate('author', '_id').exec();
+
+    if (!(post && post.author._id.equals(req.user.id))) throw new UnauthorizedError('You do not have permission to access this resource');
+
+    next();
+  } catch (error) {
+    next(error);
+  }
+}
+
 export const roleVerify = (role) => (req, res, next) => {
   if (req.user.role !== role) {
     throw new UnauthorizedError('You do not have permission to access this resource');
