@@ -15,8 +15,7 @@ export const getAllPostHandler = async (req, res, next) => {
 export const getAuthorAllPostHandler = async (req, res, next) => {
     try {
         const { limit = 10, page = 1 } = req.query;
-        console.log(req);
-        const posts = await getAuthorAllPosts(parseInt(limit), parseInt(page));
+        const posts = await getAuthorAllPosts(parseInt(limit), parseInt(page), req.user.id);
         res.status(200).send(successResponse(posts));
     } catch (error) {
         return next(error, req, res);

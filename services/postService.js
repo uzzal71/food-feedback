@@ -24,15 +24,14 @@ export const getAllPosts = async (limit = 10, page = 1) => {
     };
 }
 
-export const getAuthorAllPosts = async (limit = 10, page = 1) => {
+export const getAuthorAllPosts = async (limit = 10, page = 1, authorId) => {
     const Post = models.Post;
-    const authorId = req.user.id;
 
     const offset = (page - 1) * limit;
     const totalPosts = await Post.countDocuments();
     const totalPages = Math.ceil(totalPosts / limit);
 
-    const posts = await Post.find({ author: authorId }).skip(offset).limit(limit).exec();
+    const posts = await Post.find({ author: authorId }).populate('author', 'username avatar').skip(offset).limit(limit).exec();
     let viewModels = posts.map(post => new postViewModel(post));
 
     const nextPage = page < totalPages ? page + 1 : null;
