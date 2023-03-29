@@ -28,7 +28,16 @@ userSchema.pre('save', async function (next) {
 
 userSchema.methods.checkPassword = async function (password) {
     const user = this;
+    console.log(password);
+    console.log(user.password);
     return await bcrypt.compare(password, user.password);
+};
+
+userSchema.methods.setPassword = async function (password) {
+    const user = this;
+    const hashedPassword = await bcrypt.hash(password, 8);
+    user.password = hashedPassword;
+    user.save();
 };
 
 const User = mongoose.model("User", userSchema);

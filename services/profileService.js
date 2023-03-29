@@ -1,3 +1,4 @@
+import bcrypt from "bcrypt";
 import models from "../models/data-models";
 import { userViewModel } from "../models/view-models/user-view-model";
 import { NotFound } from "../utils/errors";
@@ -13,8 +14,12 @@ export const updateProfileService = async (updateData, userId) => {
     const User = models.User;
     let model = await User.findById(userId);
     if (model) {
-      const result = await User.findOneAndUpdate({ _id: model._id }, updateData, { new: true });
-      return result;
+        if (updateData.password) {
+            const hashedPassword = await bcrypt.hash(updateData.password, 8);
+            updateData.password = hashedPassword;
+        }     
+        const result = await User.findOneAndUpdate({ _id: model._id }, updateData, { new: true });
+        return new userViewModel(result);
     }
 
     throw new NotFound('Profile not found by the id: ' + id);
