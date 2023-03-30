@@ -28,7 +28,7 @@ export const registerHandler = async (userData) => {
     const model = new models.User(userData);
     const savedUser = await model.save();
     // sene mail
-    sendMail(savedUser.email, "Registration");
+    sendMail(savedUser.email, "Registration confirmation");
     return new userViewModel(savedUser);
 }
 
