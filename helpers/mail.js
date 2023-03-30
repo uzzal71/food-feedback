@@ -1,25 +1,23 @@
 import nodemailer from "nodemailer";
+import { registerTemplate } from "./template/registration";
 
-export const sendMail = async (receiver, subject = "Hello ✔") => {
+export const sendMail = async (receiver, subject, data) => {
     try {
-        // create reusable transporter object using the default SMTP transport
         let transporter = nodemailer.createTransport({
           host: 'smtp.gmail.com',
           port: 587,
-          secure: false, // true for 465, false for other ports
+          secure: false,
           auth: {
-            user: 'nilsagortechnology@gmail.com', // sender's email address
-            pass: 'tkidnnplnrecsnez' // sender's email password
+            user: 'nilsagortechnology@gmail.com',
+            pass: 'tkidnnplnrecsnez'
           }
         });
     
-        // send mail with defined transport object
         let info = await transporter.sendMail({
-          from: 'nilsagortechnology@gmail.com', // sender address
-          to: `${receiver}`, // list of receivers
-          subject: `${subject}`, // Subject line
-        //   text: 'Hello world?',  plain text body
-          html: '<b>Hello world?</b>' // html body
+          from: 'nilsagortechnology@gmail.com',
+          to: `${receiver}`,
+          subject: `${subject}`,
+          html: registerTemplate(data)
         });
     
         console.log('Message sent: %s', info.messageId);
