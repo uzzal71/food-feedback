@@ -32,6 +32,10 @@ export const registration = async(req, res, next) => {
         return next(error, req, res);
     }
 }
+export const verifyHandler = (req, res, next) => {
+  res.status(201).send({status: 200, message: 'Congratulation your account is activated!'});
+  next();
+};
 
 export const logout = async(req, res, next) => {
   try {
