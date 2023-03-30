@@ -1,9 +1,8 @@
 {
 	"info": {
-		"_postman_id": "efb67d8e-a75d-40fd-94cf-8bdfb4c23eaa",
+		"_postman_id": "123dfc61-0913-421c-a025-aa61846a01c4",
 		"name": "food-feedback",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "3396308"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -19,7 +18,7 @@
 							"urlencoded": [
 								{
 									"key": "email",
-									"value": "antripsaha@gmail.com",
+									"value": "uzzalroy.acm@gmail.com",
 									"description": "uzzalroy.acm@gmail.com",
 									"type": "text"
 								},
@@ -55,34 +54,34 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "Antrip Saha",
+									"value": "Uzzal Kumar Roy",
 									"type": "text"
 								},
 								{
 									"key": "email",
-									"value": "antripsaha@gmail.com",
+									"value": "uzzalroy.acm@gmail.com",
 									"type": "text"
 								},
 								{
 									"key": "username",
-									"value": "antripsaha874",
+									"value": "uzzalroy71",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "uzzalroy710",
+									"value": "uzzalroy71",
 									"type": "text"
 								},
 								{
 									"key": "role",
-									"value": "user",
+									"value": "admin",
 									"description": "user, admin",
 									"type": "text"
 								},
 								{
 									"key": "avatar",
 									"type": "file",
-									"src": []
+									"src": "/D:/food-feedback/Testing Images/europe_thumb.png"
 								}
 							]
 						},
@@ -139,7 +138,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjY0MjEwZTk0NGUzMWE3OTczODFmMTdiZSIsIm5hbWUiOiJVenphbCBSb3kiLCJlbWFpbCI6InV6emFscm95LmFjbUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTAzLTI3VDAzOjMzOjQwLjM3OVoifSwiaWF0IjoxNjgwMDYwNDY5LCJleHAiOjE2ODAwNjQwNjl9.lokdjiDKng32RecnEz45np7xyhrzRt8SBUWfIlGlLMM",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjY0MjUxODk2NjhhOGNmM2IyOTFlYzk0YyIsIm5hbWUiOiJVenphbCBLdW1hciBSb3kiLCJlbWFpbCI6InV6emFscm95LmFjbUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTAzLTMwVDA1OjA1OjI2LjQ3MFoifSwiaWF0IjoxNjgwMTY2NzE4LCJleHAiOjE2ODAxNzAzMTh9.0QNm3LvxlWr-S-s7WEi8h4datCZrqJ6WKVm1U4BTzkU",
 								"type": "default"
 							}
 						],
@@ -174,7 +173,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjY0MjExYzU1NjQ0MDMzMjA2ZTRmMzAxNyIsIm5hbWUiOiJVenphbCBLdWFtciBSb3kiLCJlbWFpbCI6InV6emFscm95LmNzZUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTAzLTI3VDA0OjMyOjIxLjQ5NVoifSwiaWF0IjoxNjgwMDYyMDc4LCJleHAiOjE2ODAwNjU2Nzh9.zEDFpF-SO6dannX0edypwrFcr7Yy4vvZyRixBMjphfA",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjY0MjUxODk2NjhhOGNmM2IyOTFlYzk0YyIsIm5hbWUiOiJVenphbCBLdW1hciBSb3kiLCJlbWFpbCI6InV6emFscm95LmFjbUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTAzLTMwVDA1OjA1OjI2LjQ3MFoifSwiaWF0IjoxNjgwMTY2NzE4LCJleHAiOjE2ODAxNzAzMTh9.0QNm3LvxlWr-S-s7WEi8h4datCZrqJ6WKVm1U4BTzkU",
 								"type": "default"
 							}
 						],
@@ -210,13 +209,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjY0MjExYzU1NjQ0MDMzMjA2ZTRmMzAxNyIsIm5hbWUiOiJVenphbCBLdWFtciBSb3kiLCJlbWFpbCI6InV6emFscm95LmNzZUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTAzLTI3VDA0OjMyOjIxLjQ5NVoifSwiaWF0IjoxNjgwMDYyMDc4LCJleHAiOjE2ODAwNjU2Nzh9.zEDFpF-SO6dannX0edypwrFcr7Yy4vvZyRixBMjphfA",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjY0MjUxODk2NjhhOGNmM2IyOTFlYzk0YyIsIm5hbWUiOiJVenphbCBLdW1hciBSb3kiLCJlbWFpbCI6InV6emFscm95LmFjbUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTAzLTMwVDA1OjA1OjI2LjQ3MFoifSwiaWF0IjoxNjgwMTY2NzE4LCJleHAiOjE2ODAxNzAzMTh9.0QNm3LvxlWr-S-s7WEi8h4datCZrqJ6WKVm1U4BTzkU",
 								"type": "default"
 							}
 						],
 						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
+							"mode": "formdata",
+							"formdata": [
 								{
 									"key": "title",
 									"value": "Best OTT Platform | Beeda Movies",
@@ -228,16 +227,14 @@
 									"type": "default"
 								},
 								{
-									"key": "file",
-									"value": "",
-									"type": "default",
-									"disabled": true
+									"key": "thumbnail",
+									"type": "file",
+									"src": "/D:/food-feedback/Testing Images/about_article_thumb1.png"
 								},
 								{
 									"key": "location",
-									"value": "",
-									"type": "default",
-									"disabled": true
+									"value": "https://www.google.com/maps/place/Easital+Technologies+Ltd+-+Best+Software+Company+in+Bangladesh/@23.7463636,90.3907265,17z/data=!3m1!4b1!4m6!3m5!1s0x39fe2b9d7fcd407b:0xb89b77c7dd042428!8m2!3d23.7463587!4d90.3933014!16s%2Fg%2F11jgxsb01p",
+									"type": "default"
 								}
 							]
 						},
@@ -262,13 +259,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjY0MjEwZTk0NGUzMWE3OTczODFmMTdiZSIsIm5hbWUiOiJVenphbCBSb3kiLCJlbWFpbCI6InV6emFscm95LmFjbUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTAzLTI3VDAzOjMzOjQwLjM3OVoifSwiaWF0IjoxNjgwMDYwNDY5LCJleHAiOjE2ODAwNjQwNjl9.lokdjiDKng32RecnEz45np7xyhrzRt8SBUWfIlGlLMM",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjY0MjUxODk2NjhhOGNmM2IyOTFlYzk0YyIsIm5hbWUiOiJVenphbCBLdW1hciBSb3kiLCJlbWFpbCI6InV6emFscm95LmFjbUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTAzLTMwVDA1OjA1OjI2LjQ3MFoifSwiaWF0IjoxNjgwMTY2NzE4LCJleHAiOjE2ODAxNzAzMTh9.0QNm3LvxlWr-S-s7WEi8h4datCZrqJ6WKVm1U4BTzkU",
 								"type": "default"
 							}
 						],
 						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
+							"mode": "formdata",
+							"formdata": [
 								{
 									"key": "title",
 									"value": "Best OTT Platform",
@@ -280,16 +277,14 @@
 									"type": "default"
 								},
 								{
-									"key": "file",
-									"value": "",
-									"type": "default",
-									"disabled": true
+									"key": "thumbnail",
+									"type": "file",
+									"src": []
 								},
 								{
 									"key": "location",
-									"value": "",
-									"type": "default",
-									"disabled": true
+									"value": "https://www.google.com/maps/place/Easital+Technologies+Ltd+-+Best+Software+Company+in+Bangladesh/@23.7463636,90.3907265,17z/data=!3m1!4b1!4m6!3m5!1s0x39fe2b9d7fcd407b:0xb89b77c7dd042428!8m2!3d23.7463587!4d90.3933014!16s%2Fg%2F11jgxsb01p",
+									"type": "default"
 								}
 							]
 						},
@@ -307,7 +302,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "6422aa1c686b09083b76bccd"
+									"value": "64254f491c808b6f6cf45e58"
 								}
 							]
 						}
@@ -321,7 +316,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjY0MjEwZTk0NGUzMWE3OTczODFmMTdiZSIsIm5hbWUiOiJVenphbCBSb3kiLCJlbWFpbCI6InV6emFscm95LmFjbUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTAzLTI3VDAzOjMzOjQwLjM3OVoifSwiaWF0IjoxNjc5OTkxODc4LCJleHAiOjE2Nzk5OTU0Nzh9.PKDYasr5P_y8jubsbNJvsmeOBFmIaIGDMRWLxsO4fao",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjY0MjUxODk2NjhhOGNmM2IyOTFlYzk0YyIsIm5hbWUiOiJVenphbCBLdW1hciBSb3kiLCJlbWFpbCI6InV6emFscm95LmFjbUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTAzLTMwVDA1OjA1OjI2LjQ3MFoifSwiaWF0IjoxNjgwMTY2NzE4LCJleHAiOjE2ODAxNzAzMTh9.0QNm3LvxlWr-S-s7WEi8h4datCZrqJ6WKVm1U4BTzkU",
 								"type": "default"
 							}
 						],
@@ -366,7 +361,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "6422aa1c686b09083b76bccd"
+									"value": "64254f491c808b6f6cf45e58"
 								}
 							]
 						}
@@ -383,36 +378,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjY0MjA4MTM2ZmM4NzY3ZTZjNjYzNmEzMCIsIm5hbWUiOiJVenphbCBLdWFtciBSb3kiLCJlbWFpbCI6InV6emFscm95LmFjbUBnbWFpbC5jb20ifSwiaWF0IjoxNjgwMDI0NTIxLCJleHAiOjE2ODAwMjgxMjF9.Oyjjd-iKfinSUyQuyRf4G9LsjRn6SOFPrewgTUsUkoI",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjY0MjUxODk2NjhhOGNmM2IyOTFlYzk0YyIsIm5hbWUiOiJVenphbCBLdW1hciBSb3kiLCJlbWFpbCI6InV6emFscm95LmFjbUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTAzLTMwVDA1OjA1OjI2LjQ3MFoifSwiaWF0IjoxNjgwMTY2NzE4LCJleHAiOjE2ODAxNzAzMTh9.0QNm3LvxlWr-S-s7WEi8h4datCZrqJ6WKVm1U4BTzkU",
 								"type": "default"
 							}
 						],
 						"body": {
 							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "title",
-									"value": "Best OTT Platform | Beeda Movies",
-									"type": "default"
-								},
-								{
-									"key": "body",
-									"value": "Beeda Mega App has a leading OTT (Over-The-Top) platform, namely Beeda Movies, which offers users a wide range of digital content. ",
-									"type": "default"
-								},
-								{
-									"key": "file",
-									"value": "",
-									"type": "default",
-									"disabled": true
-								},
-								{
-									"key": "location",
-									"value": "",
-									"type": "default",
-									"disabled": true
-								}
-							]
+							"urlencoded": []
 						},
 						"url": {
 							"raw": "{{baseUrl}}/api/v1/posts/:id",
@@ -428,7 +400,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "642323d4f8f269791ab304e6"
+									"value": "64254f491c808b6f6cf45e58"
 								}
 							]
 						}
