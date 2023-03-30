@@ -4,6 +4,7 @@ const schema = Joi.object().keys(
     {
         title: Joi.string().min(10).max(50).required(),
         body: Joi.string().required(),
+        thumbnail: Joi.string().empty(""),
         location: Joi.string().empty(""),
     }
 );

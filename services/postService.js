@@ -9,7 +9,7 @@ export const getAllPosts = async (limit = 10, page = 1) => {
     const totalPosts = await Post.countDocuments();
     const totalPages = Math.ceil(totalPosts / limit);
 
-    const posts = await Post.find().populate('author', 'username avatar').skip(offset).limit(limit).exec();
+    const posts = await Post.find({deletedAt: null}).populate('author', 'username avatar').skip(offset).limit(limit).exec();
     let viewModels = posts.map(post => new postViewModel(post));
 
     const nextPage = page < totalPages ? page + 1 : null;
@@ -31,7 +31,7 @@ export const getAuthorAllPosts = async (limit = 10, page = 1, authorId) => {
     const totalPosts = await Post.countDocuments();
     const totalPages = Math.ceil(totalPosts / limit);
 
-    const posts = await Post.find({ author: authorId }).populate('author', 'username avatar').skip(offset).limit(limit).exec();
+    const posts = await Post.find({ author: authorId, deletedAt: null }).populate('author', 'username avatar').skip(offset).limit(limit).exec();
     let viewModels = posts.map(post => new postViewModel(post));
 
     const nextPage = page < totalPages ? page + 1 : null;
@@ -48,7 +48,10 @@ export const getAuthorAllPosts = async (limit = 10, page = 1, authorId) => {
 
 export const getPostById = async (id) => {
     const Post = models.Post;
-    let model = await Post.findById(id).populate('author', 'username avatar').exec();
+    let model = await Post.findOne({
+      _id: id,
+      deletedAt: null
+    }).populate('author', 'username avatar').exec();
     let viewModel = new postViewModel(model);
     return viewModel;
 }

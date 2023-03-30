@@ -64,7 +64,7 @@ export const putHandler = async (req, res, next) => {
 
         const filePath = `${path.join(__dirname, '..')}/uploads/${postData.thumbnail}`;
 
-        if (postData.thumbnail !== '' && fs.existsSync(filePath)) {
+        if (req.file && fs.existsSync(filePath)) {
             fs.unlink(filePath, (err) => {
                 if (err)  return next(err, req, res);
                 return;
