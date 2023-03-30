@@ -3,6 +3,7 @@ import UnauthorizedError from 'http-errors';
 import models from "../models/data-models";
 import { userViewModel } from "../models/view-models/user-view-model";
 import { NotFound } from "../utils/errors";
+import { sendMail } from '../helpers/mail';
 
 export const loginHandler = async (email, password) => {
   const model = models.User;
@@ -26,6 +27,8 @@ export const loginHandler = async (email, password) => {
 export const registerHandler = async (userData) => {
     const model = new models.User(userData);
     const savedUser = await model.save();
+    // sene mail
+    sendMail(savedUser.email, "Registration");
     return new userViewModel(savedUser);
 }
 

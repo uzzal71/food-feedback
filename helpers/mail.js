@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
 
-export const sendMail = async () => {
+export const sendMail = async (receiver, subject = "Hello ✔") => {
     try {
         // create reusable transporter object using the default SMTP transport
         let transporter = nodemailer.createTransport({
@@ -8,14 +8,14 @@ export const sendMail = async () => {
           port: 587,
           secure: false, // true for 465, false for other ports
           auth: {
-            user: 'your_email@gmail.com', // sender's email address
-            pass: 'your_password' // sender's email password
+            user: 'nilsagortechnology@gmail.com', // sender's email address
+            pass: 'tkidnnplnrecsnez' // sender's email password
           }
         });
     
         // send mail with defined transport object
         let info = await transporter.sendMail({
-          from: '"Sender Name" <sender_email@gmail.com>', // sender address
+          from: 'nilsagortechnology@gmail.com', // sender address
           to: 'recipient_email@gmail.com', // list of receivers
           subject: 'Hello ✔', // Subject line
           text: 'Hello world?', // plain text body
@@ -23,9 +23,9 @@ export const sendMail = async () => {
         });
     
         console.log('Message sent: %s', info.messageId);
-        res.send('Email sent successfully');
+        return true
       } catch (error) {
         console.error(error);
-        res.status(500).send('Error sending email');
+        return false;
       }
 };
