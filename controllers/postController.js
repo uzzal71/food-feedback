@@ -1,3 +1,6 @@
+import path from "path";
+import fs from "fs";
+import models from "../models/data-models";
 import { getAllPosts, getAuthorAllPosts, getPostById, savePost, updatePost, deletePostById } from "../services/postService";
 import { NotFound } from '../utils/errors';
 import { successResponse } from "../utils/serializer";
@@ -39,10 +42,13 @@ export const getPostHandler = async (req, res, next) => {
 
 export const postHandler = async (req, res, next) => {
     try {
+        console.log(req);
         const body = req.body;
+        if (req.file) body.thumbnail = req.file.filename
         const postId = await savePost(body, req.user.id);
         res.status(201).send(successResponse({postId}));
     } catch (error) {
+        console.log(req);
         return next(error, req, res);
     }
 };
@@ -51,9 +57,31 @@ export const putHandler = async (req, res, next) => {
     try {
         const id = req.params.id;
         const body = req.body;
+        let postData = await models.Post.findById(id);
+
+        if (req.file && postData && req.file.filename !== '') body.thumbnail = req.file.filename;
+        else body.thumbnail = postData.filename;
+
+        const filePath = `${path.join(__dirname, '..')}/uploads/${postData.thumbnail}`;
+
+        if (postData.thumbnail !== '' && fs.existsSync(filePath)) {
+            fs.unlink(filePath, (err) => {
+                if (err)  return next(err, req, res);
+                return;
+            });
+        }
         const post = await updatePost(body, id);
         res.status(200).send(successResponse({postId: post._id}));
     } catch (error) {
+        let filePath;
+        if (req.file) filePath = `${path.join(__dirname, '..')}/uploads/${req.file.filename}`;
+        if (fs.existsSync(path)) {
+            fs.unlink(filePath, (err) => {
+                if (err)  return next(err, req, res);
+                return;
+            });
+        }
+
         return next(error, req, res);
     }
 }

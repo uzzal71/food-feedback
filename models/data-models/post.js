@@ -3,14 +3,14 @@ const Schema = mongoose.Schema;
 
 // schema
 const postSchema = new mongoose.Schema({
-    title : { type: String, required: true },
-    body : { type: String, required: true },
-    file : { type: String },
-    location : { type: String },
     author: {
         type: Schema.Types.ObjectId,
-        ref: "User",
+        ref: "User"
     },
+    title : { type: String, required: true },
+    body : { type: String, required: true },
+    thumbnail : { type: String, default: null },
+    location : { type: String },
     totalLike : { type: Number, default: 0 },
     comments : { type: Array, default: null },
     deletedAt: { type: Date, default: null },

@@ -29,11 +29,11 @@ const storage = multer.diskStorage({
           .join("-") +
         "-" +
         Date.now();
-  
+
       cb(null, fileName + fileExt);
     },
   });
-  
+
   // preapre the final multer upload object
   global.upload = multer({
     storage: storage,
@@ -41,7 +41,7 @@ const storage = multer.diskStorage({
       fileSize: 1000000, // 1MB
     },
     fileFilter: (req, file, cb) => {
-      if (file.fieldname === "avatar") {
+      if (file.fieldname === "avatar" || file.fieldname === "thumbnail") {
         if (
           file.mimetype === "image/png" ||
           file.mimetype === "image/jpg" ||

@@ -3,7 +3,8 @@ import Joi from "joi";
 const schema = Joi.object().keys(
     {
         title: Joi.string().min(10).max(50).required(),
-        body: Joi.string().required()
+        body: Joi.string().required(),
+        location: Joi.string().empty(""),
     }
 );
 

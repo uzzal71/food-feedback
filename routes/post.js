@@ -9,8 +9,8 @@ import { roleVerify, authorPostVerify } from "../middlewares/auth";
 router.get('/', roleVerify("admin"), getAllPostHandler);
 router.get('/author', getAuthorAllPostHandler);
 router.get('/:id', getPostHandler);
-router.post('/', handleValidation(validators.postSchemaValidate), postHandler);
-router.put('/:id', handleValidation(validators.postSchemaValidate), authorPostVerify, putHandler);
+router.post('/', global.upload.single('thumbnail'), handleValidation(validators.postSchemaValidate), postHandler);
+router.put('/:id', global.upload.single('thumbnail'), handleValidation(validators.postSchemaValidate), authorPostVerify, putHandler);
 router.delete('/:id', authorPostVerify, deleteHandler);
 
 export default router;
