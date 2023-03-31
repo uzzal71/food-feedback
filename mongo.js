@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const uri = `mongodb://127.0.0.1:27017/food-feedback`;
+const uri = `${process.env.MONGODB_URI}`;
 
 const options = {
     useNewUrlParser: true,
