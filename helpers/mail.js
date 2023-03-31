@@ -14,7 +14,7 @@ export const sendMail = async (receiver, subject, data) => {
         });
     
         let info = await transporter.sendMail({
-          from: 'nilsagortechnology@gmail.com',
+          from: `${process.env.EMAIL_USER}`,
           to: `${receiver}`,
           subject: `${subject}`,
           html: registerTemplate(data)
