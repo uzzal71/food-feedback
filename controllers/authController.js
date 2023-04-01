@@ -20,7 +20,6 @@ export const registration = async(req, res, next) => {
     try {
         const body = req.body;
         if (req.file) body.avatar = req.file.filename
-        console.log(req);
         const result = await registerHandler(body);
         res.status(201).send(result);
     } catch (error) {

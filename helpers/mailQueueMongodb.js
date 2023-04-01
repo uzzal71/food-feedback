@@ -1,10 +1,28 @@
 import Queue from "bull";
 import { MongoClient } from "mongodb";
 import nodemailer from "nodemailer";
-
 import { registerTemplate } from './template/registration';
 
-let transporter = nodemailer.createTransport({
+const mongoUrl = 'mongodb+srv://Uzzalroy_96:Uzzalroy_96@cluster0.ysa2z.mongodb.net/FoodFeedback?retryWrites=true&w=majority';
+const client = new MongoClient(mongoUrl);
+
+async function connectToDb() {
+  await client.connect();
+  const db = client.db();
+  return db;
+}
+
+const emailQueue = new Queue('emailQueue', {
+  createClient: () => connectToDb(),
+  createClient: null,
+  defaultJobOptions: {
+    removeOnComplete: true,
+    removeOnFail: true
+  }
+});
+
+
+const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
   port: 587,
   secure: false,
@@ -14,44 +32,36 @@ let transporter = nodemailer.createTransport({
   }
 });
 
-
-const emailQueue = new Queue('emailQueue', {
-  createClient: () => MongoClient.connect(`${process.env.MONGOMAIL_URI}`),
-  defaultJobOptions: {
-    removeOnComplete: true,
-    removeOnFail: true
-  }
-});
-
+const sendMail = async (to, subject, html) => {
+  const info = await transporter.sendMail({
+    from: `${process.env.EMAIL_USER}`,
+    to,
+    subject,
+    html
+  });
+  
+  console.log('Message sent: %s', info.messageId);
+}
 
 emailQueue.process(async (job) => {
   const { to, subject, html } = job.data;
-
-
-  let info = await transporter.sendMail({
-    from: `${process.env.EMAIL_USER}`,
-    to: to,
-    subject: subject,
-    html: html
-  });
-
-  console.log('Message sent: %s', info.messageId);
-});
-
-
-export const sendMail = async (data) => {
+  console.log(job)
   try {
-    const jobs =  emailQueue.add({
-        to: `${receiver}`,
-        subject: `${subject}`,
-        html: registerTemplate(data)
-    });
-
-    await Promise.all(jobs);
-
-    return true
-  } catch (error) {
-    console.error(error);
+    await sendMail(to, subject, html);
+    return true;
+  } catch (err) {
+    console.error(`Error sending email: ${err}`);
     return false;
   }
-};
+});
+
+export const sendMailQueue = async(to, subject, html) => {
+  try {
+    const job = await emailQueue.add({ to, subject, html });
+    console.log(`Job ${job.id} added to the queue`);
+    return true;
+  } catch (err) {
+    console.error(`Error adding job to queue: ${err}`);
+    return false;
+  }
+}

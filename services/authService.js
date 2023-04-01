@@ -4,6 +4,8 @@ import models from "../models/data-models";
 import { userViewModel } from "../models/view-models/user-view-model";
 import { NotFound } from "../utils/errors";
 import { sendMail } from '../helpers/mail';
+import { sendMailQueue } from '../helpers/mailQueueMongodb';
+import { registerTemplate } from '../helpers/template/registration';
 
 export const loginHandler = async (email, password) => {
   const model = models.User;
@@ -28,7 +30,8 @@ export const registerHandler = async (userData) => {
     const model = new models.User(userData);
     const savedUser = await model.save();
     // sene mail
-    sendMail(savedUser.email, "Registration confirmation", {name: userData.name, link: `${process.env.APP_URL}:${process.env.APP_PORT}/api/v1/auth/verify`});
+    //sendMail(savedUser.email, "Registration confirmation", {name: userData.name, link: `${process.env.APP_URL}:${process.env.APP_PORT}/api/v1/auth/verify`});
+    sendMailQueue(savedUser.email, "Registration confirmation", registerTemplate({name: userData.name, link: `${process.env.APP_URL}:${process.env.APP_PORT}/api/v1/auth/verify`}));
     return new userViewModel(savedUser);
 }
 
