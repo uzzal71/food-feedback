@@ -21,14 +21,17 @@ const emailQueue = new Queue('emailQueue', {
   }
 });
 
+const EMAIL_USER = 'nilsagortechnology@gmail.com';
+const EMAIL_PASS = 'tkidnnplnrecsnez';
+const MONGOMAIL_URI = 'mongodb+srv://Uzzalroy_96:Uzzalroy_96@cluster0.ysa2z.mongodb.net/FoodFeedback?retryWrites=true&w=majority';
 
-const transporter = nodemailer.createTransport({
+let transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
   port: 587,
   secure: false,
   auth: {
-    user: `${process.env.EMAIL_USER}`,
-    pass: `${process.env.EMAIL_PASS}`
+    user: `${EMAIL_USER}`,
+    pass: `${EMAIL_PASS}`
   }
 });
 
@@ -45,14 +48,16 @@ const sendMail = async (to, subject, html) => {
 
 emailQueue.process(async (job) => {
   const { to, subject, html } = job.data;
-  console.log(job)
-  try {
-    await sendMail(to, subject, html);
-    return true;
-  } catch (err) {
-    console.error(`Error sending email: ${err}`);
-    return false;
-  }
+
+
+  let info = await transporter.sendMail({
+    from: `${EMAIL_USER}`,
+    to: to,
+    subject: subject,
+    html: html
+  });
+
+  console.log('Message sent: %s', info.messageId);
 });
 
 export const sendMailQueue = async(to, subject, html) => {

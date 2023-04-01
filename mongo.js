@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const uri = `${process.env.MONGODB_URI}`;
+const uri = `mongodb+srv://Uzzalroy_96:Uzzalroy_96@cluster0.ysa2z.mongodb.net/FoodFeedback?retryWrites=true&w=majority`;
 
 const options = {
     useNewUrlParser: true,
