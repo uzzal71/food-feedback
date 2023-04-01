@@ -4,7 +4,7 @@
   "description": "This food feedback API response to every human eats food and then shares their experiences with food items.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemone -r esm ./server.js"
+    "start": "nodemon -r esm ./server.js"
   },
   "repository": {
     "type": "git",
