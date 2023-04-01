@@ -15,6 +15,7 @@ let transporter = nodemailer.createTransport({
 
 const emailQueue = new Queue('emailQueue', {
   createClient: () => MongoClient.connect(`${process.env.MONGOMAIL_URI}`),
+  createClient: null,
   defaultJobOptions: {
     removeOnComplete: true,
     removeOnFail: true
