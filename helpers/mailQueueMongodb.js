@@ -4,19 +4,23 @@ import nodemailer from "nodemailer";
 
 import { registerTemplate } from './template/registration';
 
+const EMAIL_USER = 'nilsagortechnology@gmail.com';
+const EMAIL_PASS = 'tkidnnplnrecsnez';
+const MONGOMAIL_URI = 'mongodb+srv://Uzzalroy_96:Uzzalroy_96@cluster0.ysa2z.mongodb.net/FoodFeedback?retryWrites=true&w=majority';
+
 let transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
   port: 587,
   secure: false,
   auth: {
-    user: `${process.env.EMAIL_USER}`,
-    pass: `${process.env.EMAIL_PASS}`
+    user: `${EMAIL_USER}`,
+    pass: `${EMAIL_PASS}`
   }
 });
 
 
 const emailQueue = new Queue('emailQueue', {
-  createClient: () => MongoClient.connect(`${process.env.MONGOMAIL_URI}`),
+  createClient: () => MongoClient.connect(`${MONGOMAIL_URI}`),
   defaultJobOptions: {
     removeOnComplete: true,
     removeOnFail: true
@@ -29,7 +33,7 @@ emailQueue.process(async (job) => {
 
 
   let info = await transporter.sendMail({
-    from: `${process.env.EMAIL_USER}`,
+    from: `${EMAIL_USER}`,
     to: to,
     subject: subject,
     html: html

@@ -4,12 +4,12 @@ import routeConfiguration from './routes';
 import { handleRequest, handleError } from "./middlewares/index";
 
 
-const port = process.env.APP_PORT || 3000;
+const port = 3000;
 
 app.get('/', (req, res) => {
   res.status(200).json({
     status: 'Ok',
-    message: `${ process.env.APP_NAME } server started on port ${ port }`
+    message: `FoodFeedback server started on port ${ port }`
   });
 });
 
@@ -19,5 +19,5 @@ app.use(handleError);
 
 app.listen(port, () => {
   connectWithDb();
-  console.log(`${ process.env.APP_NAME } server started on port ${ port }`);
+  console.log(`FoodFeedback server started on port ${ port }`);
 });
