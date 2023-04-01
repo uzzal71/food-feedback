@@ -2,6 +2,10 @@ import express from "express";
 import bodyParser from "body-parser";
 import multer from "multer";
 import path from "path";
+import helmet from "helmet";
+import cors from "cors";
+import xss from "xss-clean";
+import rateLimiter from "express-rate-limit";
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -10,6 +14,19 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static('public'));
+
+app.set('trust proxy', 1);
+app.use(
+  rateLimiter({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100, // limit each IP to 100 requests per windowMs
+  })
+);
+
+app.use(helmet());
+app.use(cors());
+app.use(xss());
+
 
 // File upload folder
 const UPLOADS_FOLDER = "./uploads/";

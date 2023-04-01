@@ -3,6 +3,7 @@ import connectWithDb from './mongo';
 import routeConfiguration from './routes';
 import { handleRequest, handleError } from "./middlewares/index";
 
+
 const port = process.env.APP_PORT || 3000;
 
 app.get('/', (req, res) => {
