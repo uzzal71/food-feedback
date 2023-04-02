@@ -19,8 +19,13 @@ npm start
 ```
 # Testing your postman Or your browser
 ```
-Post collection inside the project folder
+Postman collection inside the project folder
 ```
 ```
 Or open your browser then type http:///localhost:{your_port}
+```
+
+# Import
+```
+import postman collection your install postman desktop software
 ```
