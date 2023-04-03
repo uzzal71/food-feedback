@@ -3,10 +3,10 @@
 const config = {
   mongodb: {
     // TODO Change (or review) the url to your MongoDB:
-    url: `${process.env.MONGODB_URI}`,
+    url: `mongodb://localhost:27017`,
 
     // TODO Change this to your database name:
-    databaseName: "FoodFeedback",
+    databaseName: "food-feedback",
 
     options: {
       useNewUrlParser: true, // removes a deprecation warning when connecting
